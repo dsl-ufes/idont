@@ -53,7 +53,3 @@ The ABox (`abox-war-of-the-worlds.ttl`) contains an illustrative instance of the
 ## License
 
 This work is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-
-## Reference
-
-> Anonymous submission. *A Reference Ontology for Information Disorder*. Proceedings of the Brazilian Symposium on Multimedia and the Web (WebMedia), 2026.
