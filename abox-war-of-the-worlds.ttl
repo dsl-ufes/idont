@@ -1,0 +1,126 @@
+@prefix ido: <http://purl.org/dsl/ido#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ido:Participation_Creation a ido:AgentParticipation,
+        owl:NamedIndividual ;
+    ido:isMotivatedBy ido:ArtisticSocialMotivation ;
+    ido:mediatesAgent ido:OrsonWelles ;
+    ido:mediatesPhase ido:Creation_WarBroadcast ;
+    ido:mediation ido:OrsonWelles ;
+    ido:mediation_1 ido:Creation_WarBroadcast ;
+    ido:motivation ido:ArtisticSocialMotivation ;
+    ido:participationRole ido:Creator .
+
+ido:Participation_Distribution a ido:AgentParticipation,
+        owl:NamedIndividual ;
+    ido:isMotivatedBy ido:ArtisticSocialMotivation ;
+    ido:mediatesAgent ido:MercuryTheatreOnTheAir ;
+    ido:mediatesPhase ido:Distribution_WarBroadcast ;
+    ido:mediation ido:MercuryTheatreOnTheAir ;
+    ido:mediation_1 ido:Distribution_WarBroadcast ;
+    ido:motivation ido:ArtisticSocialMotivation ;
+    ido:participationRole ido:Distributor .
+
+ido:Participation_Interpretation a ido:AgentParticipation,
+        owl:NamedIndividual ;
+    ido:mediatesAgent ido:RadioListeners ;
+    ido:mediatesPhase ido:Distribution_WarBroadcast ;
+    ido:mediation ido:RadioListeners ;
+    ido:mediation_1 ido:Distribution_WarBroadcast ;
+    ido:participationRole ido:Interpreter .
+
+ido:Participation_Production a ido:AgentParticipation,
+        owl:NamedIndividual ;
+    ido:isMotivatedBy ido:ArtisticSocialMotivation,
+        ido:FinancialMotivation ;
+    ido:mediatesAgent ido:CBSRadio ;
+    ido:mediatesPhase ido:Production_WarBroadcast ;
+    ido:mediation ido:CBSRadio ;
+    ido:mediation_1 ido:Production_WarBroadcast ;
+    ido:motivation ido:ArtisticSocialMotivation,
+        ido:FinancialMotivation ;
+    ido:participationRole ido:Producer .
+
+<http://purl.org/dsl/ido/war-of-the-worlds> a owl:Ontology ;
+    owl:imports <http://purl.org/dsl/ido> .
+
+ido:WarBroadcastMisinformation a ido:Misinformation,
+        owl:NamedIndividual ;
+    ido:descriptionText "False information shared without intention to cause harm in the War of the Worlds broadcast episode" ;
+    ido:labelText "Misinformation" .
+
+ido:CBSRadio a ido:Agent,
+        ido:OfficialAgent,
+        ido:Organization,
+        owl:NamedIndividual ;
+    ido:agentType ido:Organization ;
+    ido:name_1 "CBS Radio Network" .
+
+ido:Creation_WarBroadcast a ido:CreationPhase,
+        owl:NamedIndividual ;
+    ido:endDate "1938-10-30T20:10:00"^^xsd:dateTime ;
+    ido:involves ido:MartianInvasionMessage ;
+    ido:partOf ido:WarOfTheWorlds1938 ;
+    ido:startDate "1938-10-30T20:00:00"^^xsd:dateTime .
+
+ido:FinancialMotivation a ido:Motivation,
+        owl:NamedIndividual ;
+    ido:descriptionText_1 "Broadcasting and audience development objectives" ;
+    ido:motivationType ido:Financial .
+
+ido:MercuryTheatreOnTheAir a ido:Agent,
+        ido:OfficialAgent,
+        ido:Organization,
+        owl:NamedIndividual ;
+    ido:agentType ido:Organization ;
+    ido:name_1 "Mercury Theatre on the Air" .
+
+ido:OrsonWelles a ido:Agent,
+        ido:Person,
+        ido:UnofficialAgent,
+        owl:NamedIndividual ;
+    ido:agentType ido:Person ;
+    ido:name_1 "Orson Welles" .
+
+ido:Production_WarBroadcast a ido:ProductionPhase,
+        owl:NamedIndividual ;
+    ido:endDate "1938-10-30T20:30:00"^^xsd:dateTime ;
+    ido:involves ido:MartianInvasionMessage ;
+    ido:partOf ido:WarOfTheWorlds1938 ;
+    ido:startDate "1938-10-30T20:10:00"^^xsd:dateTime .
+
+ido:RadioListeners a ido:Agent,
+        ido:Person,
+        ido:UnofficialAgent,
+        owl:NamedIndividual ;
+    ido:agentType ido:Person ;
+    ido:name_1 "General Radio Audience" .
+
+ido:MartianInvasionMessage a ido:InformationDisorderMessage,
+        ido:Message,
+        owl:NamedIndividual ;
+    ido:attributes "news-style dramatization" ;
+    ido:basedOnReality false ;
+    ido:channels "radio" ;
+    ido:classifiedAs ido:WarBroadcastMisinformation ;
+    ido:content "Radio broadcast simulating a real-time Martian invasion" ;
+    ido:format "audio" ;
+    ido:intentionToHarm false .
+
+ido:WarOfTheWorlds1938 a ido:InformationDisorderEpisode,
+        owl:NamedIndividual ;
+    ido:name "War of the Worlds Radio Broadcast (1938)" .
+
+ido:Distribution_WarBroadcast a ido:DistributionPhase,
+        owl:NamedIndividual ;
+    ido:endDate "1938-10-30T21:00:00"^^xsd:dateTime ;
+    ido:involves ido:MartianInvasionMessage ;
+    ido:partOf ido:WarOfTheWorlds1938 ;
+    ido:startDate "1938-10-30T20:30:00"^^xsd:dateTime .
+
+ido:ArtisticSocialMotivation a ido:Motivation,
+        owl:NamedIndividual ;
+    ido:descriptionText_1 "Artistic and social motivation through radio dramatization" ;
+    ido:motivationType ido:Social .
+

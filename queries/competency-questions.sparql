@@ -1,0 +1,71 @@
+PREFIX ido: <http://purl.org/dsl/ido#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# CQ1: Can a given content item be classified as misinformation, disinformation, or malinformation?
+
+SELECT ?message ?type
+WHERE {
+  ?message a ido:Message .
+  ?message ido:classifiedAs ?classification .
+  ?classification a ?type .
+  ?type rdfs:subClassOf ido:InformationDisorder .
+}
+
+# ---
+
+# CQ2: Which agents participate in each phase of an information disorder episode?
+
+SELECT ?phase ?agent ?role
+WHERE {
+  ?phase a ?phaseType .
+  ?phaseType rdfs:subClassOf* ido:EpisodePhase .
+  ?participation ido:mediatesPhase ?phase ;
+                 ido:mediatesAgent ?agent ;
+                 ido:participationRole ?role .
+}
+ORDER BY ?phase
+
+# ---
+
+# CQ3: Which content modalities are associated with specific types of information disorder?
+
+SELECT ?format ?type (COUNT(?m) AS ?count)
+WHERE {
+  ?m a ido:Message .
+  ?m ido:format ?format .
+  ?m ido:classifiedAs ?classification .
+  ?classification a ?type .
+  ?type rdfs:subClassOf ido:InformationDisorder .
+}
+GROUP BY ?format ?type
+ORDER BY DESC(?count)
+
+# ---
+
+# CQ4: Which roles do agents assume in different phases of an information disorder episode?
+
+SELECT ?agent ?phase ?role
+WHERE {
+  ?phase a ?phaseType .
+  ?phaseType rdfs:subClassOf* ido:EpisodePhase .
+  ?participation ido:mediatesPhase ?phase ;
+                 ido:mediatesAgent ?agent ;
+                 ido:participationRole ?role .
+}
+ORDER BY ?agent ?phase
+
+# ---
+
+# CQ5: What motivations characterize the participation of agents in an information disorder episode?
+
+SELECT ?agent ?phase ?motivationType ?description
+WHERE {
+  ?phase a ?phaseType .
+  ?phaseType rdfs:subClassOf* ido:EpisodePhase .
+  ?participation ido:mediatesPhase ?phase ;
+                 ido:mediatesAgent ?agent ;
+                 ido:isMotivatedBy ?motivation .
+  ?motivation ido:motivationType ?motivationType .
+  OPTIONAL { ?motivation ido:descriptionText_1 ?description . }
+}
+ORDER BY ?agent ?phase
