@@ -1,0 +1,9 @@
+PREFIX ex: <https://purl.org/dsl/idont/data/martian-invasion-cbs#>
+PREFIX idont: <https://purl.org/dsl/idont#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# CQ1: How can an information disorder event be classified as misinformation, disinformation, or malinformation?
+SELECT DISTINCT ?event ?class WHERE {
+  VALUES ?class { idont:MisinformationEvent idont:DisinformationEvent idont:MalinformationEvent }
+  ?event rdf:type ?class .
+}

@@ -1,360 +1,196 @@
-@prefix gufo: <http://purl.org/nemo/gufo#> .
-@prefix ido: <http://purl.org/dsl/ido#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ido: a owl:Ontology ;
-    owl:imports gufo: .
-
-ido:CreationPhase a gufo:EventType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "CreationPhase"@en ;
-    rdfs:subClassOf ido:EpisodePhase,
-        gufo:Event .
-
-ido:DisinformationType a ido:Disinformation,
-        owl:NamedIndividual ;
-    ido:basedOnReality false ;
-    ido:descriptionText "False information deliberately created or shared to cause harm" ;
-    ido:intentionToHarm true ;
-    ido:labelText "Disinformation" .
-
-ido:DistributionPhase a gufo:EventType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "DistributionPhase"@en ;
-    rdfs:subClassOf ido:EpisodePhase,
-        gufo:Event .
-
-ido:MalinformationType a ido:Malinformation,
-        owl:NamedIndividual ;
-    ido:basedOnReality true ;
-    ido:descriptionText "Genuine information shared or used to cause harm" ;
-    ido:intentionToHarm true ;
-    ido:labelText "Malinformation" .
-
-ido:MisinformationType a ido:Misinformation,
-        owl:NamedIndividual ;
-    ido:basedOnReality false ;
-    ido:descriptionText "False information shared without intention to cause harm" ;
-    ido:intentionToHarm false ;
-    ido:labelText "Misinformation" .
-
-ido:OfficialAgent a gufo:Role,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "OfficialAgent"@en ;
-    rdfs:subClassOf ido:Agent .
-
-ido:ProductionPhase a gufo:EventType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "ProductionPhase"@en ;
-    rdfs:subClassOf ido:EpisodePhase,
-        gufo:Event .
-
-ido:UnofficialAgent a gufo:Role,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "UnofficialAgent"@en ;
-    rdfs:subClassOf ido:Agent .
-
-ido:agentType a owl:ObjectProperty ;
-    rdfs:label "agentType"@en ;
-    rdfs:domain ido:Agent ;
-    rdfs:range ido:AgentType ;
-    rdfs:subPropertyOf gufo:hasReifiedQualityValue .
-
-ido:attributes a owl:DatatypeProperty ;
-    rdfs:label "attributes"@en ;
-    rdfs:domain ido:Message ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:basedOnReality a owl:DatatypeProperty ;
-    rdfs:label "basedOnReality"@en ;
-    rdfs:domain ido:InformationDisorder ;
-    rdfs:range xsd:boolean ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:channels a owl:DatatypeProperty ;
-    rdfs:label "channels"@en ;
-    rdfs:domain ido:Message ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:content a owl:DatatypeProperty ;
-    rdfs:label "content"@en ;
-    rdfs:domain ido:Message ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:descriptionText a owl:DatatypeProperty ;
-    rdfs:label "descriptionText"@en ;
-    rdfs:domain ido:InformationDisorder ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:descriptionText_1 a owl:DatatypeProperty ;
-    rdfs:label "descriptionText"@en ;
-    rdfs:domain ido:Motivation ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:endDate a owl:DatatypeProperty ;
-    rdfs:label "endDate"@en ;
-    rdfs:domain ido:EpisodePhase ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:format a owl:DatatypeProperty ;
-    rdfs:label "format"@en ;
-    rdfs:domain ido:Message ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:intentionToHarm a owl:DatatypeProperty ;
-    rdfs:label "intentionToHarm"@en ;
-    rdfs:domain ido:InformationDisorder ;
-    rdfs:range xsd:boolean ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:involves a owl:ObjectProperty ;
-    rdfs:label "involves"@en ;
-    rdfs:domain ido:EpisodePhase ;
-    rdfs:range ido:Message .
-
-ido:isMotivatedBy a owl:ObjectProperty ;
-    rdfs:label "isMotivatedBy"@en ;
-    rdfs:domain ido:AgentParticipation ;
-    rdfs:range ido:Motivation .
-
-ido:labelText a owl:DatatypeProperty ;
-    rdfs:label "labelText"@en ;
-    rdfs:domain ido:InformationDisorder ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:mediatesAgent a owl:ObjectProperty ;
-    rdfs:label "mediatesAgent"@en ;
-    rdfs:domain ido:AgentParticipation ;
-    rdfs:range ido:Agent ;
-    rdfs:subPropertyOf ido:mediation .
-
-ido:mediatesPhase a owl:ObjectProperty ;
-    rdfs:label "mediatesPhase"@en ;
-    rdfs:domain ido:AgentParticipation ;
-    rdfs:range ido:EpisodePhase ;
-    rdfs:subPropertyOf ido:mediation_1 .
-
-ido:motivation a owl:ObjectProperty ;
-    rdfs:label "motivation"@en ;
-    rdfs:domain ido:AgentParticipation ;
-    rdfs:range ido:Motivation .
-
-ido:motivationType a owl:ObjectProperty ;
-    rdfs:label "motivationType"@en ;
-    rdfs:domain ido:Motivation ;
-    rdfs:range ido:MotivationType ;
-    rdfs:subPropertyOf gufo:hasReifiedQualityValue .
-
-ido:name a owl:DatatypeProperty ;
-    rdfs:label "name"@en ;
-    rdfs:domain ido:InformationDisorderEpisode ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:name_1 a owl:DatatypeProperty ;
-    rdfs:label "name"@en ;
-    rdfs:domain ido:Agent ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-ido:partOf a owl:ObjectProperty ;
-    rdfs:label "partOf"@en ;
-    rdfs:domain ido:EpisodePhase ;
-    rdfs:range ido:InformationDisorderEpisode .
-
-ido:participationRole a owl:ObjectProperty ;
-    rdfs:label "participationRole"@en ;
-    rdfs:domain ido:AgentParticipation ;
-    rdfs:range ido:ParticipationRole ;
-    rdfs:subPropertyOf gufo:hasReifiedQualityValue .
-
-ido:startDate a owl:DatatypeProperty ;
-    rdfs:label "startDate"@en ;
-    rdfs:domain ido:EpisodePhase ;
-    rdfs:subPropertyOf gufo:hasQualityValue .
-
-rdf:label a owl:AnnotationProperty .
-
-ido:Amplifier a ido:ParticipationRole,
-        owl:NamedIndividual ;
-    rdf:label "Amplifier"@en .
-
-ido:Creator a ido:ParticipationRole,
-        owl:NamedIndividual ;
-    rdf:label "Creator"@en .
-
-ido:Distributor a ido:ParticipationRole,
-        owl:NamedIndividual ;
-    rdf:label "Distributor"@en .
-
-ido:Financial a ido:MotivationType,
-        owl:NamedIndividual ;
-    rdf:label "Financial"@en .
-
-ido:InformationDisorderMessage a gufo:SubKind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "InformationDisorderMessage"@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass ido:InformationDisorder ;
-            owl:onProperty ido:classifiedAs ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        ido:Message .
-
-ido:Interpreter a ido:ParticipationRole,
-        owl:NamedIndividual ;
-    rdf:label "Interpreter"@en .
-
-ido:Political a ido:MotivationType,
-        owl:NamedIndividual ;
-    rdf:label "Political"@en .
-
-ido:Producer a ido:ParticipationRole,
-        owl:NamedIndividual ;
-    rdf:label "Producer"@en .
-
-ido:Psychological a ido:MotivationType,
-        owl:NamedIndividual ;
-    rdf:label "Psychological"@en .
-
-ido:Social a ido:MotivationType,
-        owl:NamedIndividual ;
-    rdf:label "Social"@en .
-
-ido:classifiedAs a owl:ObjectProperty ;
-    rdfs:label "classifiedAs"@en ;
-    rdfs:domain ido:InformationDisorderMessage ;
-    rdfs:range ido:InformationDisorder .
-
-ido:mediation a owl:ObjectProperty ;
-    rdfs:label "mediation"@en ;
-    rdfs:domain ido:AgentParticipation ;
-    rdfs:range ido:Agent .
-
-ido:mediation_1 a owl:ObjectProperty ;
-    rdfs:label "mediation_1"@en ;
-    rdfs:domain ido:AgentParticipation ;
-    rdfs:range ido:EpisodePhase .
-
-ido:Bot a ido:AgentType,
-        gufo:SubKind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdf:label "Bot"@en ;
-    rdfs:subClassOf ido:Agent .
-
-ido:Disinformation a gufo:SubKind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "Disinformation"@en ;
-    rdfs:subClassOf ido:InformationDisorder .
-
-ido:InformationDisorderEpisode a gufo:EventType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "InformationDisorderEpisode"@en ;
-    rdfs:subClassOf gufo:Event .
-
-ido:Malinformation a gufo:SubKind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "Malinformation"@en ;
-    rdfs:subClassOf ido:InformationDisorder .
-
-ido:Misinformation a gufo:SubKind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "Misinformation"@en ;
-    rdfs:subClassOf ido:InformationDisorder .
-
-ido:Organization a ido:AgentType,
-        gufo:SubKind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdf:label "Organization"@en ;
-    rdfs:subClassOf ido:Agent .
-
-ido:Person a ido:AgentType,
-        gufo:SubKind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdf:label "Person"@en ;
-    rdfs:subClassOf ido:Agent .
-
-ido:AgentType a gufo:AbstractIndividualType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "AgentType"@en ;
-    rdfs:subClassOf gufo:QualityValue ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:oneOf ( ido:Bot ido:Organization ido:Person ) ] .
-
-ido:Motivation a owl:Class ;
-    rdfs:label "Motivation"@en ;
-    rdfs:subClassOf gufo:Quality .
-
-ido:MotivationType a gufo:AbstractIndividualType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "MotivationType"@en ;
-    rdfs:subClassOf gufo:QualityValue ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:oneOf ( ido:Financial ido:Political ido:Psychological ido:Social ) ] .
-
-ido:Message a gufo:Kind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "Message"@en ;
-    rdfs:subClassOf gufo:FunctionalComplex .
-
-ido:ParticipationRole a gufo:AbstractIndividualType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "ParticipationRole"@en ;
-    rdfs:subClassOf gufo:QualityValue ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:oneOf ( ido:Amplifier ido:Creator ido:Distributor ido:Interpreter ido:Producer ) ] .
-
-ido:AgentParticipation a owl:Class ;
-    rdfs:label "AgentParticipation"@en ;
-    rdfs:subClassOf gufo:Relator .
-
-ido:Agent a gufo:Kind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "Agent"@en ;
-    rdfs:subClassOf gufo:FunctionalComplex .
-
-ido:EpisodePhase a gufo:EventType,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "EpisodePhase"@en ;
-    rdfs:subClassOf gufo:Event .
-
-ido:InformationDisorder a gufo:Kind,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "InformationDisorder"@en ;
-    rdfs:subClassOf gufo:FunctionalComplex .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( ido:Bot ido:Organization ido:Person ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( ido:Disinformation ido:Malinformation ido:Misinformation ) .
-
+@prefix idont: <https://purl.org/dsl/idont#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://purl.org/dsl/idont> rdf:type owl:Ontology;
+    owl:imports gufo:;
+    dc:title "Information Disorder Ontology"@en;
+    dcterms:language "en";
+    rdfs:comment """Ontology for modeling information disorder phenomena, including disinformation, misinformation, malinformation, agents, participation, and bot-mediated interactions."""@en;
+    vann:preferredNamespacePrefix "idont";
+    vann:preferredNamespaceUri "https://purl.org/dsl/idont#"^^xsd:anyURI.
+idont:Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+idont:MotivationType rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (idont:Political idont:Financial idont:Social idont:Psychological)
+].
+idont:Political rdf:type idont:MotivationType;
+    rdfs:label "Political"@en.
+idont:Financial rdf:type idont:MotivationType;
+    rdfs:label "Financial"@en.
+idont:Social rdf:type idont:MotivationType;
+    rdfs:label "Social"@en.
+idont:Psychological rdf:type idont:MotivationType;
+    rdfs:label "Psychological"@en.
+idont:MotivationType rdfs:label "MotivationType"@en.
+idont:InformationDisorderEpisodePhase rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "InformationDisorderEpisodePhase"@en.
+idont:ParticipationType rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (idont:Creator idont:Producer idont:Distributor idont:Amplifier idont:Interpreter)
+].
+idont:Creator rdf:type idont:ParticipationType;
+    rdfs:label "Creator"@en.
+idont:Producer rdf:type idont:ParticipationType;
+    rdfs:label "Producer"@en.
+idont:Distributor rdf:type idont:ParticipationType;
+    rdfs:label "Distributor"@en.
+idont:Amplifier rdf:type idont:ParticipationType;
+    rdfs:label "Amplifier"@en.
+idont:Interpreter rdf:type idont:ParticipationType;
+    rdfs:label "Interpreter"@en.
+idont:ParticipationType rdfs:label "ParticipationType"@en.
+idont:Motivation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Motivation"@en.
+idont:InformationDisorderEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "InformationDisorderEvent"@en.
+idont:DisinformationEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:comment "Disinformation is false information that is deliberately created or disseminated with the express purpose to cause harm."@en;
+    rdfs:label "DisinformationEvent"@en.
+idont:MisinformationEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:comment "Misinformation is information that is false, but not intended to cause harm."@en;
+    rdfs:label "MisinformationEvent"@en.
+idont:MalinformationEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:comment "Malinformation is genuine information that is shared to cause harm."@en;
+    rdfs:label "MalinformationEvent"@en.
+idont:InformationDisorderEpisode rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "InformationDisorderEpisode"@en.
+idont:CreationPhase rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "CreationPhase"@en.
+idont:ProductionPhase rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "ProductionPhase"@en.
+idont:DistributionPhase rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "DistributionPhase"@en.
+idont:AgentParticipation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "AgentParticipation"@en.
+idont:OfficialAgent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "OfficialAgent"@en.
+idont:UnofficialAgent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "UnofficialAgent"@en.
+idont:Bot rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:comment """Bots are social media accounts that are operated entirely
+by computer programs and are designed to generate posts
+and/or engage with content on a particular platform.
+
+In disinformation campaigns, bots can be used to draw
+attention to misleading narratives, to hijack platforms'
+trending lists, and to create the illusion of public discussion
+and support."""@en;
+    rdfs:label "Bot"@en.
+idont:Message rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Message"@en.
+idont:Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+idont:Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+idont:DisinformationEvent rdfs:subClassOf idont:InformationDisorderEvent.
+idont:MisinformationEvent rdfs:subClassOf idont:InformationDisorderEvent.
+idont:MalinformationEvent rdfs:subClassOf idont:InformationDisorderEvent.
+idont:CreationPhase rdfs:subClassOf idont:InformationDisorderEpisodePhase.
+idont:ProductionPhase rdfs:subClassOf idont:InformationDisorderEpisodePhase.
+idont:DistributionPhase rdfs:subClassOf idont:InformationDisorderEpisodePhase.
+idont:OfficialAgent rdfs:subClassOf idont:Agent.
+idont:UnofficialAgent rdfs:subClassOf idont:Agent.
+idont:Bot rdfs:subClassOf idont:Agent.
+idont:Organization rdfs:subClassOf idont:Agent.
+idont:Person rdfs:subClassOf idont:Agent.
+idont:name_1 rdfs:domain idont:Agent;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "name"@en.
+idont:startDate rdfs:domain idont:InformationDisorderEpisodePhase;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startDate"@en.
+idont:endDate rdfs:domain idont:InformationDisorderEpisodePhase;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "endDate"@en.
+idont:motivationType rdfs:domain idont:Motivation;
+    rdfs:range idont:MotivationType;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "motivationType"@en.
+idont:descriptionText rdfs:domain idont:Motivation;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "descriptionText"@en.
+idont:name rdfs:domain idont:InformationDisorderEpisode;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "name"@en.
+idont:channel rdfs:domain idont:AgentParticipation;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "channel"@en.
+idont:participationType rdfs:domain idont:AgentParticipation;
+    rdfs:range idont:ParticipationType;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "participationType"@en.
+idont:motivation rdfs:domain idont:AgentParticipation;
+    rdfs:range idont:Motivation;
+    rdf:type owl:ObjectProperty;
+    rdfs:label "motivation"@en.
+idont:intentionToHarm rdfs:domain idont:AgentParticipation;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "intentionToHarm"@en.
+idont:content rdfs:domain idont:Message;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "content"@en.
+idont:format rdfs:domain idont:Message;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "format"@en.
+idont:basedOnReality rdfs:domain idont:Message;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "basedOnReality"@en.
+idont:mediation rdf:type owl:ObjectProperty;
+    rdfs:domain idont:AgentParticipation;
+    rdfs:range idont:Agent;
+    rdfs:label "mediation"@en.
+idont:isMotivatedBy rdf:type owl:ObjectProperty;
+    rdfs:domain idont:Motivation;
+    rdfs:range idont:AgentParticipation;
+    rdfs:label "isMotivatedBy"@en.
+idont:partOf_1 rdf:type owl:ObjectProperty;
+    rdfs:domain idont:InformationDisorderEpisode;
+    rdfs:range idont:InformationDisorderEvent;
+    rdfs:label "partOf"@en.
+idont:partOf rdf:type owl:ObjectProperty;
+    rdfs:domain idont:InformationDisorderEvent;
+    rdfs:range idont:AgentParticipation;
+    rdfs:label "partOf"@en.
+idont:involves rdf:type owl:ObjectProperty;
+    rdfs:domain idont:AgentParticipation;
+    rdfs:range idont:Message;
+    rdfs:label "involves"@en.

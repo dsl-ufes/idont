@@ -1,0 +1,11 @@
+PREFIX ex: <https://purl.org/dsl/idont/data/martian-invasion-cbs#>
+PREFIX idont: <https://purl.org/dsl/idont#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# CQ4: Which message artifact is reused across the phases of the episode?
+SELECT DISTINCT ?phase ?message WHERE {
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase idont:partOf ?participation .
+  ?participation idont:involves ?message .
+}

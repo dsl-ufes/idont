@@ -1,0 +1,12 @@
+PREFIX ex: <https://purl.org/dsl/idont/data/martian-invasion-cbs#>
+PREFIX idont: <https://purl.org/dsl/idont#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# CQ2: Which agents participate in each phase of an information disorder episode?
+SELECT DISTINCT ?phase ?agent WHERE {
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase rdf:type ?phaseType .
+  VALUES ?phaseType { idont:CreationPhase idont:ProductionPhase idont:DistributionPhase }
+  ?phase idont:partOf ?participation .
+  ?participation idont:mediation ?agent .
+}

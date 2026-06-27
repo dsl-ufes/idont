@@ -1,126 +1,109 @@
-@prefix ido: <http://purl.org/dsl/ido#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://purl.org/dsl/idont/data/martian-invasion-cbs#>.
+@prefix idont: <https://purl.org/dsl/idont#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-ido:Participation_Creation a ido:AgentParticipation,
-        owl:NamedIndividual ;
-    ido:isMotivatedBy ido:ArtisticSocialMotivation ;
-    ido:mediatesAgent ido:OrsonWelles ;
-    ido:mediatesPhase ido:Creation_WarBroadcast ;
-    ido:mediation ido:OrsonWelles ;
-    ido:mediation_1 ido:Creation_WarBroadcast ;
-    ido:motivation ido:ArtisticSocialMotivation ;
-    ido:participationRole ido:Creator .
+ex:WarOfTheWorldsBroadcastEpisode rdf:type idont:InformationDisorderEpisode;
+    idont:name "WarOfTheWorldsBroadcast";
+    rdfs:label "War of the Worlds broadcast episode"@en;
+    rdfs:comment "Case study based on the 1938 CBS broadcast of The War of the Worlds."@en;
+    idont:partOf_1 ex:CreationPhase_MI, ex:ProductionPhase_MI, ex:DistributionPhase_MI.
 
-ido:Participation_Distribution a ido:AgentParticipation,
-        owl:NamedIndividual ;
-    ido:isMotivatedBy ido:ArtisticSocialMotivation ;
-    ido:mediatesAgent ido:MercuryTheatreOnTheAir ;
-    ido:mediatesPhase ido:Distribution_WarBroadcast ;
-    ido:mediation ido:MercuryTheatreOnTheAir ;
-    ido:mediation_1 ido:Distribution_WarBroadcast ;
-    ido:motivation ido:ArtisticSocialMotivation ;
-    ido:participationRole ido:Distributor .
+ex:WarOfTheWorldsScript rdf:type idont:Message;
+    rdfs:label "War of the Worlds broadcast script"@en;
+    rdfs:comment "The fictional script prepared during the creation phase."@en;
+    idont:content "Broadcast script for the fictional adaptation.";
+    idont:format "text";
+    idont:basedOnReality false.
 
-ido:Participation_Interpretation a ido:AgentParticipation,
-        owl:NamedIndividual ;
-    ido:mediatesAgent ido:RadioListeners ;
-    ido:mediatesPhase ido:Distribution_WarBroadcast ;
-    ido:mediation ido:RadioListeners ;
-    ido:mediation_1 ido:Distribution_WarBroadcast ;
-    ido:participationRole ido:Interpreter .
+ex:WarOfTheWorldsBroadcast rdf:type idont:Message, idont:MisinformationEvent;
+    rdfs:label "War of the Worlds broadcast"@en;
+    rdfs:comment "A live radio broadcast that simulated a realistic news report about a Martian invasion."@en;
+    idont:content "Live radio broadcast simulating a realistic news report about a Martian invasion.";
+    idont:format "audio";
+    idont:basedOnReality false.
 
-ido:Participation_Production a ido:AgentParticipation,
-        owl:NamedIndividual ;
-    ido:isMotivatedBy ido:ArtisticSocialMotivation,
-        ido:FinancialMotivation ;
-    ido:mediatesAgent ido:CBSRadio ;
-    ido:mediatesPhase ido:Production_WarBroadcast ;
-    ido:mediation ido:CBSRadio ;
-    ido:mediation_1 ido:Production_WarBroadcast ;
-    ido:motivation ido:ArtisticSocialMotivation,
-        ido:FinancialMotivation ;
-    ido:participationRole ido:Producer .
+ex:OrsonWelles rdf:type idont:Person, idont:UnofficialAgent;
+    rdfs:label "Orson Welles"@en.
 
-<http://purl.org/dsl/ido/war-of-the-worlds> a owl:Ontology ;
-    owl:imports <http://purl.org/dsl/ido> .
+ex:CBSRadio rdf:type idont:Organization, idont:OfficialAgent;
+    rdfs:label "CBS Radio"@en.
 
-ido:WarBroadcastMisinformation a ido:Misinformation,
-        owl:NamedIndividual ;
-    ido:descriptionText "False information shared without intention to cause harm in the War of the Worlds broadcast episode" ;
-    ido:labelText "Misinformation" .
+ex:MercuryTheatreOnTheAir rdf:type idont:Organization, idont:OfficialAgent;
+    rdfs:label "Mercury Theatre on the Air"@en.
 
-ido:CBSRadio a ido:Agent,
-        ido:OfficialAgent,
-        ido:Organization,
-        owl:NamedIndividual ;
-    ido:agentType ido:Organization ;
-    ido:name_1 "CBS Radio Network" .
+ex:OrsonWellesMotivationSocial rdf:type idont:Motivation;
+    rdfs:label "Orson Welles social motivation"@en;
+    rdfs:comment "Social and collaborative storytelling associated with the fictional adaptation."@en;
+    idont:descriptionText "Social and collaborative storytelling associated with the fictional adaptation.";
+    idont:motivationType idont:Social.
 
-ido:Creation_WarBroadcast a ido:CreationPhase,
-        owl:NamedIndividual ;
-    ido:endDate "1938-10-30T20:10:00"^^xsd:dateTime ;
-    ido:involves ido:MartianInvasionMessage ;
-    ido:partOf ido:WarOfTheWorlds1938 ;
-    ido:startDate "1938-10-30T20:00:00"^^xsd:dateTime .
+ex:OrsonWellesMotivationPsychological rdf:type idont:Motivation;
+    rdfs:label "Orson Welles psychological motivation"@en;
+    rdfs:comment "Artistic and creative dramatic expression."@en;
+    idont:descriptionText "Artistic and creative dramatic expression.";
+    idont:motivationType idont:Psychological.
 
-ido:FinancialMotivation a ido:Motivation,
-        owl:NamedIndividual ;
-    ido:descriptionText_1 "Broadcasting and audience development objectives" ;
-    ido:motivationType ido:Financial .
+ex:CBSRadioMotivationFinancial rdf:type idont:Motivation;
+    rdfs:label "CBS Radio financial motivation"@en;
+    rdfs:comment "Financial and broadcasting objectives."@en;
+    idont:descriptionText "Financial and broadcasting objectives.";
+    idont:motivationType idont:Financial.
 
-ido:MercuryTheatreOnTheAir a ido:Agent,
-        ido:OfficialAgent,
-        ido:Organization,
-        owl:NamedIndividual ;
-    ido:agentType ido:Organization ;
-    ido:name_1 "Mercury Theatre on the Air" .
+ex:CBSRadioMotivationSocial rdf:type idont:Motivation;
+    rdfs:label "CBS Radio broadcasting motivation"@en;
+    rdfs:comment "Broadcasting reach and public transmission objectives."@en;
+    idont:descriptionText "Broadcasting reach and public transmission objectives.";
+    idont:motivationType idont:Social.
 
-ido:OrsonWelles a ido:Agent,
-        ido:Person,
-        ido:UnofficialAgent,
-        owl:NamedIndividual ;
-    ido:agentType ido:Person ;
-    ido:name_1 "Orson Welles" .
+ex:MercuryTheatreMotivationSocial rdf:type idont:Motivation;
+    rdfs:label "Mercury Theatre social motivation"@en;
+    rdfs:comment "Entertainment-oriented public engagement."@en;
+    idont:descriptionText "Entertainment-oriented public engagement.";
+    idont:motivationType idont:Social.
 
-ido:Production_WarBroadcast a ido:ProductionPhase,
-        owl:NamedIndividual ;
-    ido:endDate "1938-10-30T20:30:00"^^xsd:dateTime ;
-    ido:involves ido:MartianInvasionMessage ;
-    ido:partOf ido:WarOfTheWorlds1938 ;
-    ido:startDate "1938-10-30T20:10:00"^^xsd:dateTime .
+ex:MercuryTheatreMotivationPsychological rdf:type idont:Motivation;
+    rdfs:label "Mercury Theatre entertainment motivation"@en;
+    rdfs:comment "Entertainment-oriented motivation linked to the radio adaptation."@en;
+    idont:descriptionText "Entertainment-oriented motivation linked to the radio adaptation.";
+    idont:motivationType idont:Psychological.
 
-ido:RadioListeners a ido:Agent,
-        ido:Person,
-        ido:UnofficialAgent,
-        owl:NamedIndividual ;
-    ido:agentType ido:Person ;
-    ido:name_1 "General Radio Audience" .
+ex:OrsonWellesParticipation rdf:type idont:AgentParticipation;
+    rdfs:label "Orson Welles participation"@en;
+    idont:mediation ex:OrsonWelles;
+    idont:involves ex:WarOfTheWorldsScript;
+    idont:participationType idont:Creator;
+    idont:channel "radio";
+    idont:intentionToHarm false;
+    idont:motivation ex:OrsonWellesMotivationSocial, ex:OrsonWellesMotivationPsychological.
 
-ido:MartianInvasionMessage a ido:InformationDisorderMessage,
-        ido:Message,
-        owl:NamedIndividual ;
-    ido:attributes "news-style dramatization" ;
-    ido:basedOnReality false ;
-    ido:channels "radio" ;
-    ido:classifiedAs ido:WarBroadcastMisinformation ;
-    ido:content "Radio broadcast simulating a real-time Martian invasion" ;
-    ido:format "audio" ;
-    ido:intentionToHarm false .
+ex:CBSRadioParticipation rdf:type idont:AgentParticipation;
+    rdfs:label "CBS Radio participation"@en;
+    idont:mediation ex:CBSRadio;
+    idont:involves ex:WarOfTheWorldsBroadcast;
+    idont:participationType idont:Producer;
+    idont:channel "radio";
+    idont:intentionToHarm false;
+    idont:motivation ex:CBSRadioMotivationFinancial, ex:CBSRadioMotivationSocial.
 
-ido:WarOfTheWorlds1938 a ido:InformationDisorderEpisode,
-        owl:NamedIndividual ;
-    ido:name "War of the Worlds Radio Broadcast (1938)" .
+ex:MercuryTheatreOnTheAirParticipation rdf:type idont:AgentParticipation;
+    rdfs:label "Mercury Theatre on the Air participation"@en;
+    idont:mediation ex:MercuryTheatreOnTheAir;
+    idont:involves ex:WarOfTheWorldsBroadcast;
+    idont:participationType idont:Distributor;
+    idont:channel "radio";
+    idont:intentionToHarm false;
+    idont:motivation ex:MercuryTheatreMotivationSocial, ex:MercuryTheatreMotivationPsychological.
 
-ido:Distribution_WarBroadcast a ido:DistributionPhase,
-        owl:NamedIndividual ;
-    ido:endDate "1938-10-30T21:00:00"^^xsd:dateTime ;
-    ido:involves ido:MartianInvasionMessage ;
-    ido:partOf ido:WarOfTheWorlds1938 ;
-    ido:startDate "1938-10-30T20:30:00"^^xsd:dateTime .
+ex:CreationPhase_MI rdf:type idont:CreationPhase;
+    rdfs:label "Creation phase"@en;
+    idont:partOf ex:OrsonWellesParticipation.
 
-ido:ArtisticSocialMotivation a ido:Motivation,
-        owl:NamedIndividual ;
-    ido:descriptionText_1 "Artistic and social motivation through radio dramatization" ;
-    ido:motivationType ido:Social .
+ex:ProductionPhase_MI rdf:type idont:ProductionPhase;
+    rdfs:label "Production phase"@en;
+    idont:partOf ex:CBSRadioParticipation.
 
+ex:DistributionPhase_MI rdf:type idont:DistributionPhase;
+    rdfs:label "Distribution phase"@en;
+    idont:partOf ex:MercuryTheatreOnTheAirParticipation.

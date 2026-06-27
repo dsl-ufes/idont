@@ -1,71 +1,61 @@
-PREFIX ido: <http://purl.org/dsl/ido#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <https://purl.org/dsl/idont/data/martian-invasion-cbs#>
+PREFIX idont: <https://purl.org/dsl/idont#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-# CQ1: Can a given content item be classified as misinformation, disinformation, or malinformation?
+# CQ1: How can an information disorder event be classified as misinformation, disinformation, or malinformation?
 
-SELECT ?message ?type
+SELECT DISTINCT ?event ?class
 WHERE {
-  ?message a ido:Message .
-  ?message ido:classifiedAs ?classification .
-  ?classification a ?type .
-  ?type rdfs:subClassOf ido:InformationDisorder .
+  VALUES ?class { idont:MisinformationEvent idont:DisinformationEvent idont:MalinformationEvent }
+  ?event rdf:type ?class .
 }
 
 # ---
 
 # CQ2: Which agents participate in each phase of an information disorder episode?
 
-SELECT ?phase ?agent ?role
+SELECT DISTINCT ?phase ?agent
 WHERE {
-  ?phase a ?phaseType .
-  ?phaseType rdfs:subClassOf* ido:EpisodePhase .
-  ?participation ido:mediatesPhase ?phase ;
-                 ido:mediatesAgent ?agent ;
-                 ido:participationRole ?role .
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase rdf:type ?phaseType .
+  VALUES ?phaseType { idont:CreationPhase idont:ProductionPhase idont:DistributionPhase }
+  ?phase idont:partOf ?participation .
+  ?participation idont:mediation ?agent .
 }
-ORDER BY ?phase
 
 # ---
 
-# CQ3: Which content modalities are associated with specific types of information disorder?
+# CQ3: Which content formats (e.g., text, audio, video) are associated with the message artifacts involved in each phase of the episode?
 
-SELECT ?format ?type (COUNT(?m) AS ?count)
+SELECT DISTINCT ?phase ?message ?format
 WHERE {
-  ?m a ido:Message .
-  ?m ido:format ?format .
-  ?m ido:classifiedAs ?classification .
-  ?classification a ?type .
-  ?type rdfs:subClassOf ido:InformationDisorder .
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase idont:partOf ?participation .
+  ?participation idont:involves ?message .
+  ?message rdf:type idont:Message ;
+           idont:format ?format .
 }
-GROUP BY ?format ?type
-ORDER BY DESC(?count)
 
 # ---
 
-# CQ4: Which roles do agents assume in different phases of an information disorder episode?
+# CQ4: Which message artifact is reused across the phases of the episode?
 
-SELECT ?agent ?phase ?role
+SELECT DISTINCT ?phase ?message
 WHERE {
-  ?phase a ?phaseType .
-  ?phaseType rdfs:subClassOf* ido:EpisodePhase .
-  ?participation ido:mediatesPhase ?phase ;
-                 ido:mediatesAgent ?agent ;
-                 ido:participationRole ?role .
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase idont:partOf ?participation .
+  ?participation idont:involves ?message .
 }
-ORDER BY ?agent ?phase
 
 # ---
 
-# CQ5: What motivations characterize the participation of agents in an information disorder episode?
+# CQ5: What motivations characterize agents' participation in information disorder events?
 
-SELECT ?agent ?phase ?motivationType ?description
+SELECT DISTINCT ?agent ?motivation ?motivationType
 WHERE {
-  ?phase a ?phaseType .
-  ?phaseType rdfs:subClassOf* ido:EpisodePhase .
-  ?participation ido:mediatesPhase ?phase ;
-                 ido:mediatesAgent ?agent ;
-                 ido:isMotivatedBy ?motivation .
-  ?motivation ido:motivationType ?motivationType .
-  OPTIONAL { ?motivation ido:descriptionText_1 ?description . }
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase idont:partOf ?participation .
+  ?participation idont:mediation ?agent ;
+                 idont:motivation ?motivation .
+  OPTIONAL { ?motivation idont:motivationType ?motivationType . }
 }
-ORDER BY ?agent ?phase

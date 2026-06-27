@@ -1,0 +1,11 @@
+PREFIX ex: <https://purl.org/dsl/idont/data/martian-invasion-cbs#>
+PREFIX idont: <https://purl.org/dsl/idont#>
+
+# CQ5: What motivations characterize agents' participation in information disorder events?
+SELECT DISTINCT ?agent ?motivation ?motivationType WHERE {
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase idont:partOf ?participation .
+  ?participation idont:mediation ?agent ;
+                 idont:motivation ?motivation .
+  OPTIONAL { ?motivation idont:motivationType ?motivationType . }
+}

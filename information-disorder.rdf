@@ -1,643 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
-   xmlns:ido="http://purl.org/dsl/ido#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#participationRole">
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#ParticipationRole"/>
-    <rdfs:label xml:lang="en">participationRole</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasReifiedQualityValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#CBSRadio">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Agent"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#InformationDisorderEpisode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#OfficialAgent"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Organization"/>
-    <ido:agentType rdf:resource="http://purl.org/dsl/ido#Organization"/>
-    <ido:name_1>CBS Radio Network</ido:name_1>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+    <rdfs:label xml:lang="en">InformationDisorderEpisode</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#OfficialAgent">
-    <rdfs:label xml:lang="en">OfficialAgent</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#Agent"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#OfficialAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">OfficialAgent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#DisinformationEvent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Disinformation is false information that is deliberately created or disseminated with the express purpose to cause harm.</rdfs:comment>
+    <rdfs:label xml:lang="en">DisinformationEvent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#InformationDisorderEvent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#MotivationType">
-    <rdfs:label xml:lang="en">MotivationType</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
-    <owl:equivalentClass rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb6"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#DistributionPhase">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    <rdfs:label xml:lang="en">DistributionPhase</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#InformationDisorderEpisodePhase"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#name">
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">name</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#InformationDisorderEpisode"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#partOf_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#InformationDisorderEpisode"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#InformationDisorderEvent"/>
+    <rdfs:label xml:lang="en">partOf</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Creation_WarBroadcast">
-    <ido:involves rdf:resource="http://purl.org/dsl/ido#MartianInvasionMessage"/>
-    <ido:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1938-10-30T20:00:00</ido:startDate>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#CreationPhase"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <ido:partOf rdf:resource="http://purl.org/dsl/ido#WarOfTheWorlds1938"/>
-    <ido:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1938-10-30T20:10:00</ido:endDate>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#endDate">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#endDate">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#InformationDisorderEpisodePhase"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
     <rdfs:label xml:lang="en">endDate</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#AgentType">
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#UnofficialAgent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
-    <rdfs:label xml:lang="en">AgentType</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb1"/>
+    <rdfs:label xml:lang="en">UnofficialAgent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb14">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Distributor"/>
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb15"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#MartianInvasionMessage">
-    <ido:basedOnReality rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ido:basedOnReality>
-    <ido:content>Radio broadcast simulating a real-time Martian invasion</ido:content>
-    <ido:intentionToHarm rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ido:intentionToHarm>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#InformationDisorderMessage"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Message"/>
-    <ido:classifiedAs rdf:resource="http://purl.org/dsl/ido#WarBroadcastMisinformation"/>
-    <ido:format>audio</ido:format>
-    <ido:channels>radio</ido:channels>
-    <ido:attributes>news-style dramatization</ido:attributes>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#WarOfTheWorlds1938">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#InformationDisorderEpisode"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <ido:name>War of the Worlds Radio Broadcast (1938)</ido:name>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb9">
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb10"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Psychological"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Malinformation">
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">Malinformation</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Participation_Distribution">
-    <ido:mediatesPhase rdf:resource="http://purl.org/dsl/ido#Distribution_WarBroadcast"/>
-    <ido:mediation rdf:resource="http://purl.org/dsl/ido#MercuryTheatreOnTheAir"/>
-    <ido:mediatesAgent rdf:resource="http://purl.org/dsl/ido#MercuryTheatreOnTheAir"/>
-    <ido:mediation_1 rdf:resource="http://purl.org/dsl/ido#Distribution_WarBroadcast"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <ido:isMotivatedBy rdf:resource="http://purl.org/dsl/ido#ArtisticSocialMotivation"/>
-    <ido:motivation rdf:resource="http://purl.org/dsl/ido#ArtisticSocialMotivation"/>
-    <ido:participationRole rdf:resource="http://purl.org/dsl/ido#Distributor"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Bot">
-    <rdf:label xml:lang="en">Bot</rdf:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#AgentType"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Production_WarBroadcast">
-    <ido:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1938-10-30T20:30:00</ido:endDate>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#ProductionPhase"/>
-    <ido:partOf rdf:resource="http://purl.org/dsl/ido#WarOfTheWorlds1938"/>
-    <ido:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1938-10-30T20:10:00</ido:startDate>
-    <ido:involves rdf:resource="http://purl.org/dsl/ido#MartianInvasionMessage"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#MisinformationType">
-    <ido:basedOnReality rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ido:basedOnReality>
-    <ido:intentionToHarm rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ido:intentionToHarm>
-    <ido:labelText>Misinformation</ido:labelText>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Misinformation"/>
-    <ido:descriptionText>False information shared without intention to cause harm</ido:descriptionText>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#mediation">
-    <rdfs:label xml:lang="en">mediation</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Message">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
-    <rdfs:label xml:lang="en">Message</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#descriptionText">
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#descriptionText">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#Motivation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
     <rdfs:label xml:lang="en">descriptionText</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Organization">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#AgentType"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
-    <rdf:label xml:lang="en">Organization</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#format">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">format</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Message"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#mediatesAgent">
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/dsl/ido#mediation"/>
-    <rdfs:label xml:lang="en">mediatesAgent</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#agentType">
-    <rdfs:label xml:lang="en">agentType</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#AgentType"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasReifiedQualityValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#MalinformationType">
-    <ido:descriptionText>Genuine information shared or used to cause harm</ido:descriptionText>
-    <ido:intentionToHarm rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ido:intentionToHarm>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Malinformation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <ido:basedOnReality rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ido:basedOnReality>
-    <ido:labelText>Malinformation</ido:labelText>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#UnofficialAgent">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdfs:label xml:lang="en">UnofficialAgent</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#MercuryTheatreOnTheAir">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Organization"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#OfficialAgent"/>
-    <ido:name_1>Mercury Theatre on the Air</ido:name_1>
-    <ido:agentType rdf:resource="http://purl.org/dsl/ido#Organization"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Producer">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#ParticipationRole"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:label xml:lang="en">Producer</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#classifiedAs">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#InformationDisorderMessage"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">classifiedAs</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb2">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Bot"/>
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb3"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Participation_Interpretation">
-    <ido:participationRole rdf:resource="http://purl.org/dsl/ido#Interpreter"/>
-    <ido:mediatesPhase rdf:resource="http://purl.org/dsl/ido#Distribution_WarBroadcast"/>
-    <ido:mediation_1 rdf:resource="http://purl.org/dsl/ido#Distribution_WarBroadcast"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <ido:mediation rdf:resource="http://purl.org/dsl/ido#RadioListeners"/>
-    <ido:mediatesAgent rdf:resource="http://purl.org/dsl/ido#RadioListeners"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#ParticipationRole">
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
-    <rdfs:label xml:lang="en">ParticipationRole</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb11"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#labelText">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:label xml:lang="en">labelText</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Participation_Creation">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <ido:participationRole rdf:resource="http://purl.org/dsl/ido#Creator"/>
-    <ido:isMotivatedBy rdf:resource="http://purl.org/dsl/ido#ArtisticSocialMotivation"/>
-    <ido:mediation rdf:resource="http://purl.org/dsl/ido#OrsonWelles"/>
-    <ido:mediatesAgent rdf:resource="http://purl.org/dsl/ido#OrsonWelles"/>
-    <ido:motivation rdf:resource="http://purl.org/dsl/ido#ArtisticSocialMotivation"/>
-    <ido:mediatesPhase rdf:resource="http://purl.org/dsl/ido#Creation_WarBroadcast"/>
-    <ido:mediation_1 rdf:resource="http://purl.org/dsl/ido#Creation_WarBroadcast"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#content">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Message"/>
-    <rdfs:label xml:lang="en">content</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#involves">
-    <rdfs:label xml:lang="en">involves</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#Message"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Participation_Production">
-    <ido:mediation_1 rdf:resource="http://purl.org/dsl/ido#Production_WarBroadcast"/>
-    <ido:isMotivatedBy rdf:resource="http://purl.org/dsl/ido#ArtisticSocialMotivation"/>
-    <ido:isMotivatedBy rdf:resource="http://purl.org/dsl/ido#FinancialMotivation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <ido:mediation rdf:resource="http://purl.org/dsl/ido#CBSRadio"/>
-    <ido:participationRole rdf:resource="http://purl.org/dsl/ido#Producer"/>
-    <ido:motivation rdf:resource="http://purl.org/dsl/ido#ArtisticSocialMotivation"/>
-    <ido:motivation rdf:resource="http://purl.org/dsl/ido#FinancialMotivation"/>
-    <ido:mediatesAgent rdf:resource="http://purl.org/dsl/ido#CBSRadio"/>
-    <ido:mediatesPhase rdf:resource="http://purl.org/dsl/ido#Production_WarBroadcast"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#ArtisticSocialMotivation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Motivation"/>
-    <ido:descriptionText_1>Artistic and social motivation through radio dramatization</ido:descriptionText_1>
-    <ido:motivationType rdf:resource="http://purl.org/dsl/ido#Social"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb3">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Organization"/>
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb4"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#partOf">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
-    <rdfs:label xml:lang="en">partOf</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#InformationDisorderEpisode"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb23">
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb24"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Malinformation"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb7">
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb8"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Financial"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#InformationDisorderMessage">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
-    <rdfs:label xml:lang="en">InformationDisorderMessage</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#Message"/>
-    <rdfs:subClassOf rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb5"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb21">
-    <owl:members rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb22"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Misinformation">
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">Misinformation</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Agent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Agent</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#InformationDisorderEpisode">
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">InformationDisorderEpisode</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#DisinformationType">
-    <ido:labelText>Disinformation</ido:labelText>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Disinformation"/>
-    <ido:descriptionText>False information deliberately created or shared to cause harm</ido:descriptionText>
-    <ido:basedOnReality rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ido:basedOnReality>
-    <ido:intentionToHarm rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ido:intentionToHarm>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Interpreter">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#ParticipationRole"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:label xml:lang="en">Interpreter</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#name_1">
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#name">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#InformationDisorderEpisode"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Agent"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
     <rdfs:label xml:lang="en">name</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Political">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#MotivationType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:label xml:lang="en">Political</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#RadioListeners">
-    <ido:agentType rdf:resource="http://purl.org/dsl/ido#Person"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Person"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#UnofficialAgent"/>
-    <ido:name_1>General Radio Audience</ido:name_1>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb18">
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb19"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Bot"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Psychological">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#MotivationType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:label xml:lang="en">Psychological</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Distribution_WarBroadcast">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#DistributionPhase"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <ido:partOf rdf:resource="http://purl.org/dsl/ido#WarOfTheWorlds1938"/>
-    <ido:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1938-10-30T20:30:00</ido:startDate>
-    <ido:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1938-10-30T21:00:00</ido:endDate>
-    <ido:involves rdf:resource="http://purl.org/dsl/ido#MartianInvasionMessage"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Person">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#AgentType"/>
-    <rdf:label xml:lang="en">Person</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#mediatesPhase">
-    <rdfs:label xml:lang="en">mediatesPhase</rdfs:label>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/dsl/ido#mediation_1"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#attributes">
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#name_1">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#Agent"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Message"/>
-    <rdfs:label xml:lang="en">attributes</rdfs:label>
+    <rdfs:label xml:lang="en">name</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#mediation_1">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#motivationType">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#Motivation"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#MotivationType"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
-    <rdfs:label xml:lang="en">mediation_1</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#FinancialMotivation">
-    <ido:motivationType rdf:resource="http://purl.org/dsl/ido#Financial"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Motivation"/>
-    <ido:descriptionText_1>Broadcasting and audience development objectives</ido:descriptionText_1>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#ProductionPhase">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">ProductionPhase</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Distributor">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#ParticipationRole"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:label xml:lang="en">Distributor</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#WarBroadcastMisinformation">
-    <ido:labelText>Misinformation</ido:labelText>
-    <ido:descriptionText>False information shared without intention to cause harm in the War of the Worlds broadcast episode</ido:descriptionText>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Misinformation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#descriptionText_1">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Motivation"/>
-    <rdfs:label xml:lang="en">descriptionText</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#motivationType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">motivationType</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Motivation"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasReifiedQualityValue"/>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#MotivationType"/>
+    <rdfs:label xml:lang="en">motivationType</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb11">
-    <owl:oneOf rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb12"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#MotivationType">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    <owl:equivalentClass rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b1"/>
+    <rdfs:label xml:lang="en">MotivationType</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#basedOnReality">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
-    <rdfs:label xml:lang="en">basedOnReality</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Disinformation">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#MisinformationEvent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
-    <rdfs:label xml:lang="en">Disinformation</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Social">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#MotivationType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:label xml:lang="en">Social</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Motivation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Motivation</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Amplifier">
-    <rdf:label xml:lang="en">Amplifier</rdf:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#ParticipationRole"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Creator">
-    <rdf:label xml:lang="en">Creator</rdf:label>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#ParticipationRole"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#channels">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#Message"/>
-    <rdfs:label xml:lang="en">channels</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb22">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Disinformation"/>
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb23"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#OrsonWelles">
-    <ido:name_1>Orson Welles</ido:name_1>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Agent"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#Person"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#UnofficialAgent"/>
-    <ido:agentType rdf:resource="http://purl.org/dsl/ido#Person"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#InformationDisorder">
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">InformationDisorder</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#DistributionPhase">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
-    <rdfs:label xml:lang="en">DistributionPhase</rdfs:label>
     <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Misinformation is information that is false, but not intended to cause harm.</rdfs:comment>
+    <rdfs:label xml:lang="en">MisinformationEvent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#InformationDisorderEvent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#Financial">
-    <rdf:type rdf:resource="http://purl.org/dsl/ido#MotivationType"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:label xml:lang="en">Financial</rdf:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#AgentParticipation">
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Message">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">AgentParticipation</rdfs:label>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    <rdfs:label xml:lang="en">Message</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb17">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-    <owl:members rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb18"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#intentionToHarm">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <rdfs:label xml:lang="en">intentionToHarm</rdfs:label>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#channel">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
+    <rdfs:label xml:lang="en">channel</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb13">
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb14"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Creator"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Organization</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#Agent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#motivation">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#format">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#Message"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
+    <rdfs:label xml:lang="en">format</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#mediation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#Motivation"/>
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#Agent"/>
+    <rdfs:label xml:lang="en">mediation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
+    <dc:title xml:lang="en">Information Disorder Ontology</dc:title>
+    <dcterms:language>en</dcterms:language>
+    <rdfs:comment xml:lang="en">Ontology for modeling information disorder phenomena, including disinformation, misinformation, malinformation, agents, participation, and bot-mediated interactions.</rdfs:comment>
+    <vann:preferredNamespacePrefix>idont</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://purl.org/dsl/idont#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:oneOf rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#ParticipationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#AbstractIndividualType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#QualityValue"/>
+    <owl:equivalentClass rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b6"/>
+    <rdfs:label xml:lang="en">ParticipationType</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#motivation">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#Motivation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">motivation</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb19">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Organization"/>
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb20"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#intentionToHarm">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
+    <rdfs:label xml:lang="en">intentionToHarm</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb15">
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb16"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Interpreter"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb4">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Person"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb12">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Amplifier"/>
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb13"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#EpisodePhase">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
-    <rdfs:label xml:lang="en">EpisodePhase</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#isMotivatedBy">
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#AgentParticipation"/>
-    <rdfs:label xml:lang="en">isMotivatedBy</rdfs:label>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#partOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/dsl/ido#Motivation"/>
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#InformationDisorderEvent"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:label xml:lang="en">partOf</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#CreationPhase">
-    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
-    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Person">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Person</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Bot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Bots are social media accounts that are operated entirely
+by computer programs and are designed to generate posts
+and/or engage with content on a particular platform.
+
+In disinformation campaigns, bots can be used to draw
+attention to misleading narratives, to hijack platforms'
+trending lists, and to create the illusion of public discussion
+and support.</rdfs:comment>
+    <rdfs:label xml:lang="en">Bot</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b3">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Financial"/>
+    <rdf:rest rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#MalinformationEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Malinformation is genuine information that is shared to cause harm.</rdfs:comment>
+    <rdfs:label xml:lang="en">MalinformationEvent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#InformationDisorderEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b8">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Producer"/>
+    <rdf:rest rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Interpreter">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#ParticipationType"/>
+    <rdfs:label xml:lang="en">Interpreter</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#CreationPhase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label xml:lang="en">CreationPhase</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#InformationDisorderEpisodePhase"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dsl/ido#startDate">
-    <rdfs:label xml:lang="en">startDate</rdfs:label>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
-    <rdfs:domain rdf:resource="http://purl.org/dsl/ido#EpisodePhase"/>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Motivation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+    <rdfs:label xml:lang="en">Motivation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b11">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Interpreter"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#ProductionPhase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">ProductionPhase</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://purl.org/dsl/idont#InformationDisorderEpisodePhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#InformationDisorderEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+    <rdfs:label xml:lang="en">InformationDisorderEvent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#InformationDisorderEpisodePhase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#EventType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Event"/>
+    <rdfs:label xml:lang="en">InformationDisorderEpisodePhase</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Agent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    <rdfs:label xml:lang="en">Agent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b5">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Psychological"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Producer">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#ParticipationType"/>
+    <rdfs:label xml:lang="en">Producer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#participationType">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#ParticipationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasReifiedQualityValue"/>
+    <rdfs:label xml:lang="en">participationType</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#isMotivatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#Motivation"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:label xml:lang="en">isMotivatedBy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Amplifier">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#ParticipationType"/>
+    <rdfs:label xml:lang="en">Amplifier</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#AgentParticipation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+    <rdfs:label xml:lang="en">AgentParticipation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Financial">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#MotivationType"/>
+    <rdfs:label xml:lang="en">Financial</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#basedOnReality">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#Message"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
+    <rdfs:label xml:lang="en">basedOnReality</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb6">
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b7">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Creator"/>
+    <rdf:rest rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#involves">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#AgentParticipation"/>
+    <rdfs:range rdf:resource="https://purl.org/dsl/idont#Message"/>
+    <rdfs:label xml:lang="en">involves</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#content">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#Message"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
+    <rdfs:label xml:lang="en">content</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Psychological">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#MotivationType"/>
+    <rdfs:label xml:lang="en">Psychological</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Distributor">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#ParticipationType"/>
+    <rdfs:label xml:lang="en">Distributor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#startDate">
+    <rdfs:domain rdf:resource="https://purl.org/dsl/idont#InformationDisorderEpisodePhase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#hasQualityValue"/>
+    <rdfs:label xml:lang="en">startDate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b10">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Amplifier"/>
+    <rdf:rest rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b11"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b4">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Social"/>
+    <rdf:rest rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Creator">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#ParticipationType"/>
+    <rdfs:label xml:lang="en">Creator</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Social">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#MotivationType"/>
+    <rdfs:label xml:lang="en">Social</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b9">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Distributor"/>
+    <rdf:rest rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b10"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b2">
+    <rdf:first rdf:resource="https://purl.org/dsl/idont#Political"/>
+    <rdf:rest rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://purl.org/dsl/idont#Political">
+    <rdf:type rdf:resource="https://purl.org/dsl/idont#MotivationType"/>
+    <rdfs:label xml:lang="en">Political</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b1">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:oneOf rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb7"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb5">
-    <owl:onProperty rdf:resource="http://purl.org/dsl/ido#classifiedAs"/>
-    <owl:onClass rdf:resource="http://purl.org/dsl/ido#InformationDisorder"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:oneOf rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb2"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb16">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Producer"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb20">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Person"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb10">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Social"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb8">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Political"/>
-    <rdf:rest rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb9"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#label">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="nfcc617f326694a8dac7fc38958d69adeb24">
-    <rdf:first rdf:resource="http://purl.org/dsl/ido#Misinformation"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <owl:oneOf rdf:nodeID="n24a3dff1e1cf42ec84ac52edefc519c3b2"/>
   </rdf:Description>
 </rdf:RDF>

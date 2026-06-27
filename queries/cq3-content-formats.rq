@@ -1,0 +1,12 @@
+PREFIX ex: <https://purl.org/dsl/idont/data/martian-invasion-cbs#>
+PREFIX idont: <https://purl.org/dsl/idont#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# CQ3: Which content formats (e.g., text, audio, video) are associated with the message artifacts involved in each phase of the episode?
+SELECT DISTINCT ?phase ?message ?format WHERE {
+  ex:WarOfTheWorldsBroadcastEpisode idont:partOf_1 ?phase .
+  ?phase idont:partOf ?participation .
+  ?participation idont:involves ?message .
+  ?message rdf:type idont:Message ;
+           idont:format ?format .
+}
